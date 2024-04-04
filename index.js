@@ -14,10 +14,20 @@ class PokemonFetcher {
     let pokemon = await response.json();
     let pokemonName = $('<h2>').text(this.capitalizeFirstLetter(pokemon.name));
     let pokemonImg = $('<img>').attr('src', pokemon.sprites.front_default);
+    
+    let abilitiesList = $('<ul>'); // Criando a lista de habilidades
+
+    pokemon.abilities.forEach(ability => {
+        let abilityItem = $('<li>').text(ability.ability.name);
+        abilitiesList.append(abilityItem);
+    });
+
     let container = $('.pokemon-container');
     container.append(pokemonName);
     container.append(pokemonImg);
-  }
+    container.append(abilitiesList); // Adicionando a lista de habilidades à container
+}
+
 
   async getPokemons() {
     let response = await fetch(`${this.urlBase}pokemon?offset=0&limit=20`, {
@@ -60,8 +70,8 @@ class PokemonFetcher {
   }
 }
 
-$(document).ready(function () {
-  $('#search-button').click(async function() {
+$(document).ready(function () { // Quando o documento estiver pronto, executar o código abaixo
+  $('#search-button').click(async function() { 
     let pokemonFetcher = new PokemonFetcher();
     let pokemonName = $('#search-input').val();
     console.log(pokemonName);
