@@ -3,19 +3,25 @@
 
 <head>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
   <script src="index.js"></script>
+
 </head>
 
 <body>
-  <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
-    <h1>Pokémons</h1>
-    
+  <div class="search-container">
+    <input type="text" id="search-input" placeholder="Search for a Pokémon">
+    <button id="search-button">Search</button>
   </div>
 
+  <div class="pokemon-container">
+    <!-- Container para exibir o nome, imagem e habilidades -->
+    <!-- <div class="pokemon-info">
+    </div> -->
+  </div>
 
-  <ul id="pokemon-list">
-    <!-- Os itens da lista serão adicionados aqui -->
-  </ul>
+  <!-- Restante do seu código HTML -->
 </body>
 
 </html>
