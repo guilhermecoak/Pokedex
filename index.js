@@ -12,20 +12,104 @@ class PokemonFetcher {
     });
 
     let pokemon = await response.json();
+    console.log(pokemon.types[0].type.name);
+    let pokemonType = $('<p>').text(this.capitalizeFirstLetter(pokemon.types[0].type.name));
     let pokemonName = $('<h2>').text(this.capitalizeFirstLetter(pokemon.name));
     let pokemonImg = $('<img>').attr('src', pokemon.sprites.front_default);
+    let abilitiesList = $('<div>'); // Criando uma div de habilidades
     
-    let abilitiesList = $('<ul>'); // Criando a lista de habilidades
-
     pokemon.abilities.forEach(ability => {
-        let abilityItem = $('<li>').text(ability.ability.name);
+        let abilityItem = $('<p>').text(this.capitalizeFirstLetter(ability.ability.name));
         abilitiesList.append(abilityItem);
+
+
     });
 
     let container = $('.pokemon-container');
     container.append(pokemonName);
     container.append(pokemonImg);
     container.append(abilitiesList); // Adicionando a lista de habilidades à container
+    container.append(pokemon-container);
+    container.append(pokemonType);
+
+    const pokemonTypes = pokemon.types[0].type.name;
+    switch (pokemonTypes) {
+      case 'fire':
+        console.log('FOGO!');
+         $('.pokemon-container').css('background-color','#fc0303')
+        break;
+      case 'grass':
+        $('.pokemon-container').css('background-color','#008000')
+         console.log('grass grass');
+        break;
+        case 'grass':
+        $('.pokemon-container').css('background-color','#008000')
+         console.log('grass grass');
+        break;
+        case 'water':
+          $('.pokemon-container').css('background-color','#0394fc')
+          break;
+
+          case 'flying':
+          $('.pokemon-container').css('background-color','#95c9ed')
+          break;
+
+          case 'fighting':
+          $('.pokemon-container').css('background-color','#f77e2d')
+          break;
+
+          case 'poison':
+          $('.pokemon-container').css('background-color','#a436e3')
+          break;
+
+          case 'electric':
+          $('.pokemon-container').css('background-color','#feff00')
+          break;
+
+          case 'ground':
+          $('.pokemon-container').css('background-color','#8a6206')
+          break;
+
+          case 'rock':
+          $('.pokemon-container').css('background-color','#5e4302')
+          break;
+
+          case 'psychic':
+          $('.pokemon-container').css('background-color','#a10565')
+          break;
+
+          case 'ice':
+          $('.pokemon-container').css('background-color','#78a4c4')
+          break;
+
+          case 'bug':
+          $('.pokemon-container').css('background-color','#168238')
+          break;
+
+          case 'ghost':
+          $('.pokemon-container').css('background-color','#330d75')
+          break;
+
+          case 'steel':
+          $('.pokemon-container').css('background-color','#6b807a')
+          break;
+
+          case 'dragon':
+          $('.pokemon-container').css('background-color','#308691')
+          break;
+
+          case 'dark':
+          $('.pokemon-container').css('background-color','#140330')
+          break;
+
+          case 'fairy':
+          $('.pokemon-container').css('background-color','#a34059')
+          break;
+        default: 
+          $('.pokemon-container').css('background-color','#c7b673')
+          console.log("putaria");
+    }
+
 }
 
 
