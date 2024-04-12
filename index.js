@@ -13,7 +13,7 @@ class PokemonFetcher {
 
     let pokemon = await response.json();
     console.log(pokemon.types[0].type.name);
-    let pokemonType = $('<p>').text(this.capitalizeFirstLetter(pokemon.types[0].type.name));
+    let pokemonType = $('<p>').text(this.capitalizeFirstLetter("Tipo: " + pokemon.types[0].type.name));
     let pokemonName = $('<h2>').text(this.capitalizeFirstLetter(pokemon.name));
     let pokemonImg = $('<img>').attr('src', pokemon.sprites.front_default);   
     
@@ -23,6 +23,7 @@ class PokemonFetcher {
     let weightFormat = weightConvert >= 100 ? `${weightConvert / 100} kg` : `${weightConvert} g`; 
     let pokemonHeight = $('<p>').text(`Autura: ${heightFormat}`);
     let pokemonWeight = $('<p>').text(`Peso: ${weightFormat}`);
+    
     
 
     let abilitiesList = $('<div>').text(`Habilidades:`); // Criando uma div de habilidades
@@ -43,8 +44,6 @@ class PokemonFetcher {
     container.append(pokemonHeight);
     container.append(pokemonWeight);
     
-    
-
     const pokemonTypes = pokemon.types[0].type.name;
     switch (pokemonTypes) {
       case 'fire':
@@ -120,7 +119,7 @@ class PokemonFetcher {
           break;
         default: 
           $('.pokemon-container').css('background-color','#c7b673')
-          console.log("putaria");
+          console.log("Normy");
     }
 
 }
