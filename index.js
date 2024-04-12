@@ -13,10 +13,20 @@ class PokemonFetcher {
 
     let pokemon = await response.json();
     console.log(pokemon.types[0].type.name);
-    let pokemonType = $('<p>').text(this.capitalizeFirstLetter(pokemon.types[0].type.name));
+    let pokemonType = $('<p>').text(this.capitalizeFirstLetter("Tipo: " + pokemon.types[0].type.name));
     let pokemonName = $('<h2>').text(this.capitalizeFirstLetter(pokemon.name));
-    let pokemonImg = $('<img>').attr('src', pokemon.sprites.front_default);
-    let abilitiesList = $('<div>'); // Criando uma div de habilidades
+    let pokemonImg = $('<img>').attr('src', pokemon.sprites.front_default);   
+    
+    let heightConvert = pokemon.height * 10; 
+    let heightFormat = heightConvert >= 100 ? `${heightConvert / 100} mts` : `${heightConvert} cm`;
+    let weightConvert = pokemon.weight * 10; 
+    let weightFormat = weightConvert >= 100 ? `${weightConvert / 100} kg` : `${weightConvert} g`; 
+    let pokemonHeight = $('<p>').text(`Autura: ${heightFormat}`);
+    let pokemonWeight = $('<p>').text(`Peso: ${weightFormat}`);
+    
+    
+
+    let abilitiesList = $('<div>').text(`Habilidades:`); // Criando uma div de habilidades
     
     pokemon.abilities.forEach(ability => {
         let abilityItem = $('<p>').text(this.capitalizeFirstLetter(ability.ability.name));
@@ -31,7 +41,9 @@ class PokemonFetcher {
     container.append(abilitiesList); // Adicionando a lista de habilidades à container
     container.append(pokemon-container);
     container.append(pokemonType);
-
+    container.append(pokemonHeight);
+    container.append(pokemonWeight);
+    
     const pokemonTypes = pokemon.types[0].type.name;
     switch (pokemonTypes) {
       case 'fire':
@@ -107,7 +119,7 @@ class PokemonFetcher {
           break;
         default: 
           $('.pokemon-container').css('background-color','#c7b673')
-          console.log("putaria");
+          console.log("Normy");
     }
 
 }
@@ -121,7 +133,7 @@ class PokemonFetcher {
     let data = await response.json();
 
     let pokemonResults = data.results;
-
+  
     let pokemonGrid = $('#pokemon-grid');
 
     for (let pokemon of pokemonResults) {
