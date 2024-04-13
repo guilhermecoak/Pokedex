@@ -112,6 +112,7 @@ class PokemonFetcher {
 
           case 'dark':
           $('.pokemon-container').css('background-color','#140330')
+          $('.pokemon-container').css("color", "white")
           break;
 
           case 'fairy':
