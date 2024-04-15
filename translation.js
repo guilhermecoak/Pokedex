@@ -6,7 +6,7 @@ const types = {
     "bug": "Inseto",
     "dark": "sombrio",
     "dragon": "Dragão",
-    "electric": "eletrico",
+    "electric": "elètrico",
     "fairy": "fada",
     "fighting": "lutador",
     "fire": "fogo",
@@ -17,4 +17,5 @@ const types = {
     "ice": "gelo",
     "Rock": "Pedra",
     "???":  "Esquecido",
+    "water": "Agua",
 };

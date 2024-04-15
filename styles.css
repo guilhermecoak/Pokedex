@@ -21,12 +21,23 @@
   margin-bottom: 10px;
 }
 
-.pokemon-container {	
-  width: 150px;
+.pokemon-container  {	
+  width: 24vw;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 1px;
   text-align: center;
   margin: 0 auto;
+  z-index: 5;
+  position: relative;
+  top: 19.6dvw;
+
+  left: 2vw;
+  height: 25vw;
+  font-size: 1.5vw;
+}
+
+.pokemon-container img{
+  width: 8vw;
 }
 
 .search-container {
@@ -34,3 +45,21 @@
   justify-content: center;
   margin : 20px;
 }
+
+.pokedex {
+  position: relative;
+}
+
+.pokemon-flex {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.pokedex-bg {
+  position: absolute;
+  width: 100dvw;
+}
+

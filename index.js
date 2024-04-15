@@ -13,7 +13,7 @@ class PokemonFetcher {
 
     let pokemon = await response.json();
     console.log(pokemon.types[0].type.name);
-    let pokemonType = $('<p>').text(this.capitalizeFirstLetter("Tipo: " + pokemon.types[0].type.name));
+    let pokemonType = $('<p>').text("Tipo: " + this.capitalizeFirstLetter((types[pokemon.types[0].type.name])));
     let pokemonName = $('<h2>').text(this.capitalizeFirstLetter(pokemon.name));
     let pokemonImg = $('<img>').attr('src', pokemon.sprites.front_default);   
     
@@ -21,7 +21,7 @@ class PokemonFetcher {
     let heightFormat = heightConvert >= 100 ? `${heightConvert / 100} mts` : `${heightConvert} cm`;
     let weightConvert = pokemon.weight * 10; 
     let weightFormat = weightConvert >= 100 ? `${weightConvert / 100} kg` : `${weightConvert} g`; 
-    let pokemonHeight = $('<p>').text(`Autura: ${heightFormat}`);
+    let pokemonHeight = $('<p>').text(`Altura: ${heightFormat}`);
     let pokemonWeight = $('<p>').text(`Peso: ${weightFormat}`);
     
     
@@ -38,14 +38,14 @@ class PokemonFetcher {
     let container = $('.pokemon-container');
     container.append(pokemonName);
     container.append(pokemonImg);
-    container.append(abilitiesList); // Adicionando a lista de habilidades à container
     container.append(pokemon-container);
     container.append(pokemonType);
     container.append(pokemonHeight);
     container.append(pokemonWeight);
     
     const pokemonTypes = pokemon.types[0].type.name;
-    switch (pokemonTypes) {
+    switch (pokemonTypes)  {
+
       case 'fire':
         console.log('FOGO!');
          $('.pokemon-container').css('background-color','#fc0303')
@@ -112,9 +112,9 @@ class PokemonFetcher {
 
           case 'dark':
           $('.pokemon-container').css('background-color','#140330')
-          $('.pokemon-container').css("color", "white")
+          $('p,h2').css("color","#fff")
           break;
-
+          
           case 'fairy':
           $('.pokemon-container').css('background-color','#a34059')
           break;
