@@ -27,6 +27,9 @@
   border-radius: 10px;
   text-align: center;
   margin: 0 auto;
+  z-index: 5;
+  position: relative;
+  top: 20dvw;
 }
 
 .search-container {
@@ -34,3 +37,21 @@
   justify-content: center;
   margin : 20px;
 }
+
+.pokedex {
+  position: relative;
+}
+
+.pokemon-flex {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.pokedex-bg {
+  position: absolute;
+  width: 100dvw;
+}
+

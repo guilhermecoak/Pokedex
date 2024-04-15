@@ -6,7 +6,7 @@ const types = {
     "bug": "Inseto",
     "dark": "sombrio",
     "dragon": "Dragão",
-    "electric": "eletrico",
+    "electric": "elètrico",
     "fairy": "fada",
     "fighting": "lutador",
     "fire": "fogo",
